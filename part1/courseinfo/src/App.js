@@ -4,9 +4,9 @@ const App = () => {
   const part1 = 'Fundamentals of React'
   const part2 = 'Using props to pass data'
   const part3 = 'State of a component'
-  const exercise1 = 10
-  const exercise2 = 7
-  const exercise3 = 14
+  const exercise1 = 14
+  const exercise2 = 6
+  const exercise3 = 15
 
   return (
     <>
@@ -37,12 +37,14 @@ const Content = (props) => {
   )
 }
 const Total = (props) => {
-  // const {exercise1, exercise2, exercise3} = props
+
+  //Destructuring of object:
+  const {exercise1, exercise2, exercise3} = props
   return (
     <div>
-      {/* <p>Number of exercises = {exercise1 + exercise2 + exercise3}</p> */}
+      <p>Number of exercises = {exercise1 + exercise2 + exercise3}</p>
 
-      <p>Number of exercises = {props.exercise1 + props.exercise2 + props.exercise3}</p>
+      {/* <p>Number of exercises = {props.exercise1 + props.exercise2 + props.exercise3}</p> */}
 
     </div>
   )
