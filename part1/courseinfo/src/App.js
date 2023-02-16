@@ -8,6 +8,8 @@ const App = () => {
   const exercise2 = 6
   const exercise3 = 15
 
+  // A more convenient way is to make object of above variables and then use them !
+
   return (
     <>
       <Header course={course} />
