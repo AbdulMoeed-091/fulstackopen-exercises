@@ -2,7 +2,8 @@ import { useState } from "react"
 
 const App =()=> {
 
-const[num, setnum] = useState(0);
+const[num, setnum] = useState('If it hurts, do it more often.');
+const[vote, setVote] = useState(0);
 
 const anecdotes = [
   'If it hurts, do it more often.',
@@ -18,14 +19,21 @@ const anecdotes = [
 function random (){
   const rand = anecdotes[Math.floor(Math.random()*anecdotes.length)]
 
- setnum(rand)
+ setnum(rand);
+}
+
+function giveVote(){
+  
+ setVote(vote+1);
 }
 
   return (
     <div>
-        <p> {num}
-        </p>
-        <button onClick={random}> Anectode</button>
+      <h1>Anecdote of the day</h1>
+        <p> {num}</p>
+        <p>has {vote} votes</p>
+        <button onClick={giveVote}>Vote</button> 
+        <button onClick={random}>Next Anecdote</button>
     </div>
   );
 }
