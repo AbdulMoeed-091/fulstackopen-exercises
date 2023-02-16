@@ -2,9 +2,8 @@ import { useState } from "react"
 
 const App =()=> {
 
-const[num, setnum] = useState('If it hurts, do it more often.');
-const[vote, setVote] = useState(0);
-
+const[currentAnecdote, setCurrentAnecdote] = useState(0);
+const[votes, setvotes] = useState([0,0,0,0,0,0,0,0]);
 const anecdotes = [
   'If it hurts, do it more often.',
   'Adding manpower to a late software project makes it later!',
@@ -16,24 +15,33 @@ const anecdotes = [
   'The only way to go fast, is to go well.'
 ]
 
-function random (){
-  const rand = anecdotes[Math.floor(Math.random()*anecdotes.length)]
 
- setnum(rand);
+function random (){
+  const rand = Math.floor(Math.random()*anecdotes.length);
+ return rand
+ 
 }
 
-function giveVote(){
-  
- setVote(vote+1);
+function givevotes(){  
+  // Destructuring of votes to updatevotes
+    const updatedvotes = [...votes]
+    for(let i=0; i<anecdotes.length; i++){
+      if(i=== currentAnecdote){
+        updatedvotes[i]=votes[currentAnecdote] + 1;
+      }else{
+        updatedvotes[i]=votes[i];
+      }
+    }
+    setvotes(updatedvotes);
 }
 
   return (
     <div>
       <h1>Anecdote of the day</h1>
-        <p> {num}</p>
-        <p>has {vote} votes</p>
-        <button onClick={giveVote}>Vote</button> 
-        <button onClick={random}>Next Anecdote</button>
+        <p> {anecdotes[currentAnecdote]}</p>
+        <p>has {votes[currentAnecdote]} votes</p>
+        <button onClick={givevotes}>vote</button> <b/>
+        <button onClick={()=>setCurrentAnecdote(random())}>Next Anecdote</button>
     </div>
   );
 }
