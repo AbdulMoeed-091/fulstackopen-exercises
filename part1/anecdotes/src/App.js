@@ -36,6 +36,12 @@ function givevotes(){
     console.log(votes, votes[currentAnecdote])
 }
 
+
+function max(){
+const num = Math.max(...votes);
+return num
+
+}
   return (
     <div>
       <h1>Anecdote of the day</h1>
@@ -43,6 +49,10 @@ function givevotes(){
         <p>has {votes[currentAnecdote]} votes</p>
         <button onClick={givevotes}>vote</button> <b/>
         <button onClick={()=>setCurrentAnecdote(random())}>Next Anecdote</button>
+
+        <h1>Anecdote with most votes</h1>
+        <p></p>
+        <p>has {max()} votes</p>
     </div>
   );
 }
