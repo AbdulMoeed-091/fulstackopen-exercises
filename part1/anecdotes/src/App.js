@@ -33,6 +33,7 @@ function givevotes(){
       }
     }
     setvotes(updatedvotes);
+    console.log(votes, votes[currentAnecdote])
 }
 
   return (
