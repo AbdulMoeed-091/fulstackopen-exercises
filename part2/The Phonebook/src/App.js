@@ -1,4 +1,4 @@
-
+import Notes from "./note";
 const App = (props) => {
 
   const {notes} = props;
@@ -6,8 +6,12 @@ const App = (props) => {
   return (
     <div>
       <h1>Notes</h1>
-{notes.map(note=><li key={note.id}>{note.content}</li>)}
+      <ul>
 
+{notes.map(note=><Notes key={note.id} note={note}/>
+)}
+
+      </ul>
 
     </div>
   );
