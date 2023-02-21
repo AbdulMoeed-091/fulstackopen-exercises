@@ -6,7 +6,7 @@ const Course=(props)=>{
   
   const total = course.parts.reduce((s, p) => {
     console.log(s, p)
-    return s+p})
+    return (s+p.exercises)},0)
 
   return(
 
