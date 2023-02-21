@@ -1,6 +1,6 @@
 
 
-const Notes=(props)=>{
+const Note=(props)=>{
 const {note} = props
     return(
 
@@ -8,4 +8,4 @@ const {note} = props
     )
 }
 
-  export default Notes;
+  export default Note;
