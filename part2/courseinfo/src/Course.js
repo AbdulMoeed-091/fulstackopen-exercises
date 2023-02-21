@@ -1,33 +1,30 @@
 
-const Course=(props)=>{
+const Course = (props) => {
 
-  const {course} = props;
+  const { course } = props;
+    const total = course.parts.reduce((s, p) => {
+      console.log(s, p)
+      return (s + p.exercises)
+    }, 0)
 
-  
-  const total = course.parts.reduce((s, p) => {
-    console.log(s, p)
-    return (s+p.exercises)},0)
+    return (
 
-  return(
+      <div>
+        <h1>{course.name}</h1>
+        <div>{course.parts.map(values => {
+          return (
+            <p key={values.id}> {values.name}{values.exercises} </p>
 
-    <div>
-<h1>{course.name}</h1>
-<div>{course.parts.map(values=>{return(
-    <p key={values.id}> {values.name}{values.exercises} </p> 
-    
-  )
-    })}
-    
-    
-  <h5> total of {total} exercises</h5>
-  
-  </div>
+          )
+        })}
 
-    </div>
-  )
-  
-    
 
+          <h5> total of {total} exercises</h5>
+
+        </div>
+
+      </div>
+    )
 }
 
 

@@ -4,7 +4,7 @@ import Course from "./Course";
 
 const App = () => {
   
-  const course = {
+  const courses =[ {
   id: 1,
   name: 'Half Stack application development  ',
   parts: [
@@ -29,8 +29,35 @@ const App = () => {
       id:4
     }
   ]
-}
-  return ( <Course name={course.name} course={course}/>
+},
+{
+  name: 'Node.js',
+  id: 2,
+  parts: [
+    {
+      name: 'Routing',
+      exercises: 3,
+      id: 1
+    },
+    {
+      name: 'Middlewares',
+      exercises: 7,
+      id: 2
+    }
+  ]
+}]
+  const Courses = () => {
+    let coursesComponent = [];
+    for (let i = 0; i < courses.length; i++) {
+      
+      coursesComponent.push(<Course key={courses[i].id} course={courses[i]}/>);
+  }
+  return coursesComponent;
+  }
+  return ( <div>
+    {Courses()}
+
+    </div>
   );
 }
 
