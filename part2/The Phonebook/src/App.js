@@ -12,12 +12,17 @@ const App = () => {
     const addNewName = {
       name: newName
     }
+    for(let i=0; i<persons.length; i++){
+    if(newName === persons[i].name){
+      alert(`${newName} is already present in Phonebook`)
+      console.log( `Sorry! can't enter ${newName} in the phonebook!`)
+    }
+    else{
     setPersons(persons.concat(addNewName))
-    setNewName('')
-  }
+    setNewName('')}
+  }}
 
   const handleName = (event) => {
-    // console.log(event.target.value);
     setNewName(event.target.value);
     
   }
@@ -33,8 +38,10 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      <div>
+      <div><ul>
+
         {persons.map(value => (value.name))}
+      </ul>
      
       </div>
 
