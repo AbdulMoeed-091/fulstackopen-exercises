@@ -7,6 +7,7 @@ const [filter, setFilter]  = useState('');
 
 
 const handleFilter =(event)=>{
+    console.log(event.target.value);
     setFilter (event.target.value);
 }
 
@@ -16,13 +17,13 @@ const handleFilter =(event)=>{
     : persons.filter(person =>
         person.name.toLowerCase().includes(filter.toLowerCase()))
 
-  const row = () => personsToShow.map(person => 
-    <p key={person.name}>{person.name} </p>
+  const row_names = () => personsToShow.map(person => 
+    <p key={person.name}>{person.name} {person.number}</p>
   
 )
 return(
     <div>
-        Filter to show: <input value={row} onChange={handleFilter}/>
+        Filter to show: <input value={row_names} onChange={handleFilter}/>
     </div>
 )
   
