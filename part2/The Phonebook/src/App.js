@@ -20,6 +20,8 @@ return(
   <div>
     <div>
       <h2>Phonebook</h2>
+      <Filter persons={persons} />
+    
     </div>
 
   <div> 

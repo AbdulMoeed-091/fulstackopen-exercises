@@ -16,22 +16,29 @@ const Add=(props)=>{
       id: persons.length+1
     }
     for (let i = 0; i < persons.length; i++) {
-      if (newName.toLowerCase() === persons[i].name.toLowerCase() || newNumber===persons[i].number){
+      if (newName.toLowerCase() === persons[i].name.toLowerCase()){
         alert(`${newName} is already present in Phonebook`);
         setNewName('')
         setNewNumber('')
         console.log(`Sorry! can't enter ${newName} in the phonebook!`)
-       return;
+        return;
+      }
+      else if(newNumber===persons[i].number){
+        alert(`${newNumber} is already present in Phonebook`);
+        setNewName('')
+        setNewNumber('')
+        console.log(`Sorry! can't enter ${newNumber} as Number in the phonebook!`)
+        return;
       }
     
     else if(newName==''|| newNumber == ''){
-      alert("All fields must be filled")
+      alert("All fields must be filled!")
       return;
-    }
+    }}
     setPersons(persons.concat(addNewName))
     setNewName('')
     setNewNumber('')
-  }
+  
   }
 
   const handleName = (event) => {
@@ -44,10 +51,8 @@ const Add=(props)=>{
 
   return (
     <div>
-     
       <form onSubmit={addName}>
         <div>
-        
           Name: <input value={newName} onChange={handleName} placeholder='Enter Name' />
           <br></br>
           Number: <input value={newNumber} onChange={handleNumber} placeholder='xx-xx-xxxxxx' />
