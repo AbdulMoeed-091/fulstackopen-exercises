@@ -1,29 +1,24 @@
 import { useState } from "react";
 
-const Filter=({persons})=>{
+const Filter=({persons, setPersons})=>{
 
 
-const [filter, setFilter]  = useState('');
+const [filter, setFilter]  = useState(persons)
 
 
 const handleFilter =(event)=>{
-    console.log(event.target.value);
     setFilter (event.target.value);
-}
+ 
+    const updatedList = [...persons];
+    updatedList = updatedList.filter((item) => {
+      return item.toLowerCase()
+    });
+      setFilter(updatedList);
+  };
 
-  
-  const personsToShow = filter === ''
-    ? persons
-    : persons.filter(person =>
-        person.name.toLowerCase().includes(filter.toLowerCase()))
-
-  const row_names = () => personsToShow.map(person => 
-    <p key={person.name}>{person.name} {person.number}</p>
-  
-)
 return(
     <div>
-        Filter to show: <input value={row_names} onChange={handleFilter}/>
+        Filter to show: <input value={filter} onChange={handleFilter}/>
     </div>
 )
   
